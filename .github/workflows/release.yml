@@ -26,7 +26,7 @@ jobs:
         tarBall: true
         extract: true
     - run: mv siderolabs-talos-* talos-${{ steps.upstream-version.outputs.upstream-version-pep440 }}
-    - uses: actions/setup-go@v5
+    - uses: actions/setup-go@v7
     - working-directory: talos-${{ steps.upstream-version.outputs.upstream-version-pep440 }}
       run: GOWORK=off go mod vendor
     - run: tar --create --auto-compress --file talosctl-${{ steps.upstream-version.outputs.upstream-version-pep440 }}-deps.tar.gz talos-${{ steps.upstream-version.outputs.upstream-version-pep440 }}/vendor
